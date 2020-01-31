@@ -7,7 +7,11 @@ import {
   Text,
   Button,
   StatusBar,
+  ActivityIndicator
 } from 'react-native';
+
+import AuthLogo from './authLogo';
+import AuthForm from './authForm';
 
 import {
   Header,
@@ -20,20 +24,42 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#1d428a',
+    padding:50
+  },
+  loading: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems:'center',
+    justifyContent:'center'
   }
 });
 
 export default class AuthComponent extends Component {
+
+  state = {
+    loading:false
+  }
+
   render() {
 
-    return (
-      <View style={styles.container}>
-        <Text>Login Main</Text>
-        <Button title="go" onPress={
-          () => this.props.navigation.navigate('App')
-        } />
-      </View>
-    );
+    if(this.state.loading) {
+        return (
+          <View style={styles.loading}>
+            <ActivityIndicator/>
+          </View>
+        );
+    } else {
+      return (
+        <ScrollView style={styles.container}>
+          <View>
+            <AuthLogo/>
+            <AuthForm/>
+          </View>
+        </ScrollView>
+      );
+    }
+
+    
   }
 }
