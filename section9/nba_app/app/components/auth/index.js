@@ -5,6 +5,7 @@ import {
   ScrollView,
   View,
   Text,
+  Button,
   StatusBar,
 } from 'react-native';
 
@@ -29,6 +30,9 @@ export default class AuthComponent extends Component {
     return (
       <View style={styles.container}>
         <Text>Login Main</Text>
+        <Button title="go" onPress={
+          () => this.props.navigation.navigate('App')
+        } />
       </View>
     );
   }
