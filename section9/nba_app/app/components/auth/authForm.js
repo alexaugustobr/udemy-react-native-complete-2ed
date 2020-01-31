@@ -48,6 +48,9 @@ export default class AuthForm extends Component {
                     placeholderTextColor="#cecece"
                     autoCapitalize={"none"}
                     type={this.state.form.email.type}
+                    value={this.state.form.email.value}
+                    keyboardType={"email-address"}
+                    //overrideStyle={{}}
                 />
             </View>
         )
